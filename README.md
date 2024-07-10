@@ -18,7 +18,7 @@ RedSocks2 for OpenWrt
    tar xjf OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
    cd OpenWrt-SDK-ar71xx-*
    # 获取 Makefile
-   git clone https://github.com/babylon882004/openwrt-redsocks2.git package/redsocks2
+   git clone https://github.com/pi2376327/openwrt-redsocks2.git package/redsocks2
    # 更新feeds ./scripts/feeds update -a
    # 安装依赖./scripts/feeds install libevent
    # 选择要编译的包 Network -> redsocks2
@@ -34,7 +34,6 @@ RedSocks2 for OpenWrt
    https://github.com/semigodking/redsocks/releases
    #修改Makefile中PKG_VERSION:后的版本值
    #将0.66改成最新realease版本
-   cd /
    wget https://github.com/semigodking/redsocks/archive/release-0.66.tar.gz
    #找出gz源码包的md5校验码
    find /release-0.66.tar.gz |xargs md5sum|sort
