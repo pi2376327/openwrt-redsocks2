@@ -7,19 +7,18 @@
 
 include $(TOPDIR)/rules.mk
 
+
 PKG_NAME:=redsocks2
-PKG_VERSION:=0.66
-PKG_RELEASE=1
+PKG_VERSION:=test4
+PKG_RELEASE:=1
 
-PKG_SOURCE:=release-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/semigodking/redsocks/archive
-PKG_MD5SUM:=4962de07d383f8ca4f67772f283c25e7
-
-PKG_LICENSE:=GPLv2
-PKG_LICENSE_FILES:=LICENSE
-PKG_MAINTAINER:=Zhuofei Wang <SemigodKing@gmail.com>
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)/$(BUILD_VARIANT)/redsocks-release-$(PKG_VERSION)
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/semigodking/redsocks.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=82fa9502894057c0df629df419763469b3c193ab
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
+PKG_MAINTAINER:=semigodking <semigodking@gmail.com>
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)/$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -41,15 +40,13 @@ define Package/redsocks2/conffiles
 /etc/config/redsocks2
 endef
 
+define Build/Compile
+	$(call Build/Compile/Default,DISABLE_SHADOWSOCKS=true)
+endef
+
 define Package/redsocks2/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/redsocks2 $(1)/usr/bin
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DATA) ./files/redsocks2.config $(1)/etc/config/redsocks2
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/redsocks2.init $(1)/etc/init.d/redsocks2
-	$(INSTALL_DIR) $(1)/etc/redsocks2
-	$(INSTALL_DATA) ./files/redsocks2.template $(1)/etc/redsocks2/config.template
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/redsocks2 $(1)/usr/sbin
 endef
 
 $(eval $(call BuildPackage,redsocks2))
