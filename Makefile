@@ -40,9 +40,9 @@ define Package/redsocks2/conffiles
 /etc/config/redsocks2
 endef
 
-#define Build/Compile
-#	$(call Build/Compile/Default,ENABLE_HTTPS_PROXY=true)
-#endef
+define Build/Compile
+	$(call Build/Compile/Default,DISABLE_SHADOWSOCKS=true)
+endef
 
 define Package/redsocks2/install
 	$(INSTALL_DIR) $(1)/usr/sbin
