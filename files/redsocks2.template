@@ -1,28 +1,22 @@
+base {
+          log_debug = on;
+          log_info = off;
+          log = "file:/var/log/redsocks2.log";
+          daemon = on;
+          redirector= iptables;
+}
 redsocks {
- local_ip = 192.168.1.1;
- local_port = 1081;
- ip = 192.168.1.1;
- port = 9050;
- type = socks5; // I use socks5 proxy for GFW'ed IP
- autoproxy = 1; // I want autoproxy feature enabled on this section.
- // timeout is meaningful when 'autoproxy' is non-zero.
- // It specified timeout value when trying to connect to destination
- // directly. Default is 10 seconds. When it is set to 0, default
- // timeout value will be used.
- // NOTE: decreasing the timeout value may lead increase of chance for
- // normal IP to be misjudged.
- timeout = 13;
- //type = http-connect;
- //login = username;
- //password = passwd;
+          bind = "192.168.150.1:30000";
+          relay = "38.244.49.228:5555";
+          type = socks5;
+          autoproxy = 0;
+          login = "user";
+          password = "password";
 }
 tcpdns {
-    // Transform UDP DNS requests into TCP DNS requests.
-    // You can also redirect connections to external TCP DNS server to
-    // REDSOCKS transparent proxy via iptables.
-    local_ip = 192.168.1.1; // Local server to act as DNS server
-    local_port = 1053;      // UDP port to receive UDP DNS requests
-    tcpdns1 = 8.8.4.4;      // DNS server that supports TCP DNS requests
-    tcpdns2 = 8.8.8.8;      // DNS server that supports TCP DNS requests
-    timeout = 4;            // Timeout value for TCP DNS requests
+
+    bind = "192.168.150.1:1053"; 
+    tcpdns1 = "8.8.4.4:53";
+    tcpdns2 = 8.8.8.8:53;
+    timeout = 4;
 }
