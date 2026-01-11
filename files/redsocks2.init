@@ -1,0 +1,32 @@
+#!/bin/sh /etc/rc.common
+# Redsocks2 init script for OpenWrt (classic style)
+
+START=99
+STOP=10
+
+BIN=/usr/sbin/redsocks2
+CONF=/etc/redsocks2/redsocks2.conf
+PIDFILE=/var/run/redsocks2.pid
+
+start() {
+    echo "Starting redsocks2..."
+    if [ -f "$PIDFILE" ] && kill -0 $(cat $PIDFILE) 2>/dev/null; then
+        echo "redsocks2 already running"
+        return 1
+    fi
+    $BIN -c $CONF -p $PIDFILE
+}
+
+stop() {
+    echo "Stopping redsocks2..."
+    if [ -f "$PIDFILE" ]; then
+        kill $(cat $PIDFILE) 2>/dev/null
+        rm -f $PIDFILE
+    fi
+}
+
+restart() {
+    stop
+    sleep 1
+    start
+}
