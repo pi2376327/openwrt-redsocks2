@@ -5,7 +5,7 @@ START=99
 STOP=10
 
 BIN=/usr/sbin/redsocks2
-CONF=/etc/redsocks2/redsocks2.conf
+CONF=/etc/config/redsocks2
 PIDFILE=/var/run/redsocks2.pid
 
 start() {
