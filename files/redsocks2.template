@@ -7,11 +7,27 @@ base {
 }
 redsocks {
           bind = "0.0.0.0:30000";
-          relay = "38.244.49.228:5555";
+          relay = "80.174.234.91:1337";
           type = socks5;
           autoproxy = 0;
-          login = "user";
-          password = "password";
+          login = "i3d9SxPjaTSM";
+          password = "IdlQeXCk2Pt9";
+}
+redsocks {
+          bind = "0.0.0.0:30001";
+          relay = "1.9.206.179:6017";
+          type = socks5;
+          autoproxy = 0;
+          login = "pl-aepenoo2eogc";
+          password = "oYJnAjc0MNnMdf8E";
+}
+redsocks {
+          bind = "0.0.0.0:30002";
+          relay = "1.9.206.179:6018";
+          type = socks5;
+          autoproxy = 0;
+          login = "pl-aepenoo2eogc";
+          password = "oYJnAjc0MNnMdf8E";
 }
 tcpdns {
           bind = "0.0.0.0:3053"; 
@@ -26,5 +42,8 @@ tcpdns {
 tcpdns {
           bind = "0.0.0.0:3253"; 
           tcpdns1 = "1.1.1.1:53";
+          #tcpdns2 = "1.0.0.1:53";
+          #tcpdns3 = "9.9.9.9:53";
+          #tcpdns4 = "149.112.112.112:53";
           timeout = 4;
 }
