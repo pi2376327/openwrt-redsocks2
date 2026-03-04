@@ -6,7 +6,7 @@ base {
           redirector= iptables;
 }
 redsocks {
-          bind = "192.168.150.1:30000";
+          bind = "0.0.0.0:30000";
           relay = "38.244.49.228:5555";
           type = socks5;
           autoproxy = 0;
@@ -14,8 +14,17 @@ redsocks {
           password = "password";
 }
 tcpdns {
-          bind = "192.168.150.1:3053"; 
+          bind = "0.0.0.0:3053"; 
+          tcpdns1 = "8.8.8.8:53";
+          timeout = 4;
+}
+tcpdns {
+          bind = "0.0.0.0:3153"; 
           tcpdns1 = "8.8.4.4:53";
-          tcpdns2 = "8.8.8.8:53";
+          timeout = 4;
+}
+tcpdns {
+          bind = "0.0.0.0:3253"; 
+          tcpdns1 = "1.1.1.1:53";
           timeout = 4;
 }
