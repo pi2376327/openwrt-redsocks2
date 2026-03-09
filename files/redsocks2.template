@@ -6,42 +6,55 @@ base {
           redirector= iptables;
 }
 redsocks {
-          bind = "0.0.0.0:30000";
-          relay = "80.174.234.91:1337";
-          type = socks5;
-          autoproxy = 0;
-          login = "i3d9SxPjaTSM";
-          password = "IdlQeXCk2Pt9";
-}
-redsocks {
           bind = "0.0.0.0:30001";
-          relay = "1.9.206.179:6017";
+          relay = "149.19.158.144:45696";
           type = socks5;
           autoproxy = 0;
-          login = "pl-aepenoo2eogc";
-          password = "oYJnAjc0MNnMdf8E";
+          login = "user";
+          password = "password";
 }
 redsocks {
           bind = "0.0.0.0:30002";
-          relay = "1.9.206.179:6018";
+          relay = "149.19.159.19:49642";
           type = socks5;
           autoproxy = 0;
-          login = "pl-aepenoo2eogc";
-          password = "oYJnAjc0MNnMdf8E";
+          login = "user";
+          password = "password";
 }
+redsocks {
+          bind = "0.0.0.0:30003";
+          relay = "31.133.94.75:49156";
+          type = socks5;
+          autoproxy = 0;
+          login = "user";
+          password = "password";
+}
+redsocks {
+          bind = "0.0.0.0:30004";
+          relay = "216.120.189.59:43112";
+          type = socks5;
+          autoproxy = 0;
+          login = "user";
+          password = "password";
+}
+
 tcpdns {
-          bind = "0.0.0.0:3053"; 
-          tcpdns1 = "8.8.8.8:53";
+          bind = "0.0.0.0:30153"; 
+          tcpdns1 = "9.9.9.9:53";
           timeout = 4;
 }
 tcpdns {
-          bind = "0.0.0.0:3153"; 
+          bind = "0.0.0.0:30253"; 
           tcpdns1 = "8.8.4.4:53";
           timeout = 4;
 }
 tcpdns {
-          bind = "0.0.0.0:3253"; 
+          bind = "0.0.0.0:30353"; 
           tcpdns1 = "1.1.1.1:53";
-          tcpdns2 = "1.0.0.1:53";
+          timeout = 4;
+}
+tcpdns {
+          bind = "0.0.0.0:30453"; 
+          tcpdns1 = "1.0.0.1:53";
           timeout = 4;
 }
