@@ -6,6 +6,14 @@ base {
           redirector= iptables;
 }
 redsocks {
+          bind = "0.0.0.0:30000";
+          relay = "149.19.158.144:45696";
+          type = socks5;
+          autoproxy = 0;
+          login = "user";
+          password = "password";
+}
+redsocks {
           bind = "0.0.0.0:30001";
           relay = "149.19.158.144:45696";
           type = socks5;
