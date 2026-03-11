@@ -1,7 +1,7 @@
 base {
-          log_debug = on;
+          log_debug = off;
           log_info = off;
-          log = "file:/var/log/redsocks2.log";
+          log = "file:/dev/null";
           daemon = on;
           redirector= iptables;
 }
