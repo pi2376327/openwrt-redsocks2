@@ -9,9 +9,9 @@ redsocks {
           bind = "0.0.0.0:30000";
           relay = "149.19.158.144:45696";
           type = socks5;
-          autoproxy = 0;
           login = "";
           password = "";
+          autoproxy = 0;
 }
 redudp {
         bind = "0.0.0.0:30000";
