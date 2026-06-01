@@ -22,13 +22,13 @@ redudp {
         udp_timeout = 3;
 }
 tcpdns {
-          bind = "0.0.0.0:9999"; 
-          tcpdns1 = "9.9.9.9:53";
+          bind = "0.0.0.0:8844"; 
+          tcpdns1 = "8.8.4.4:53";
           timeout = 4;
 }
 tcpdns {
-          bind = "0.0.0.0:8844"; 
-          tcpdns1 = "8.8.4.4:53";
+          bind = "0.0.0.0:9999"; 
+          tcpdns1 = "9.9.9.9:53";
           timeout = 4;
 }
 tcpdns {
